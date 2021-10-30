@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="1" failures="0" name="Pruebas demoQA" skipped="0" tests="2" time="119.79" timestamp="2021-10-25 08:24:10"><testcase name="Registar Web Table"/><testcase name="Editar Web Table"><error message="Index: 5, Size: 3" type="java.lang.IndexOutOfBoundsException">Index: 5, Size: 3</error><system-err>Index: 5, Size: 3&#13;
+page.WebTableDemoQAPage.clickEdit(WebTableDemoQAPage.java:131)&#13;
+stepDefinition.WebTableDemoQAStepdefinition.seClickeaEnElSpanEdit(WebTableDemoQAStepdefinition.java:45)&#13;
+✽.se clickea en el span edit "Cierra"(src/test/resources/feature/TestWebTableDemoQA.feature:23)&#13;
+</system-err></testcase></testsuite>
