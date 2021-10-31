@@ -7,8 +7,6 @@ Feature: Pruebas demo QA
   Para obtener las opciones de home
 
 
-
-
   @Form
   Scenario Outline: Registro de formulario
     Given que la web TollQa Practice Form esta disponible
@@ -19,7 +17,7 @@ Feature: Pruebas demo QA
     And se ingresa el Mobile "<sMobile>"
     And se seleciona Date of Birth
     And se ingresa el Subject "<sSubject>"
-    And se seleciona  Hobbies
+    And se seleciona Hobbies "<sHobbies>"
     And se carga el archivo
     And se ingresa el CurrentAddress "<sCurrentAddress>"
     And se ingresa el sState "<sState>"
@@ -27,5 +25,5 @@ Feature: Pruebas demo QA
     And se clickea en el boton submit del formulario
     Then se muestra mis datos en una ventana emergente
     Examples:
-      | sName  | sLastName | sEmail           | sGenero | sMobile    | sSubject | sCurrentAddress | sState | sCity |
-      | breysi | jara      | breysi@gmail.com | Male | 9876545678 | English  | Huanuco         | NCR    | Delhi |
+      | sName  | sLastName | sEmail           | sGenero | sMobile    | sSubject | sHobbies | sCurrentAddress | sState | sCity |
+      | breysi | jara      | breysi@gmail.com | Female    | 9876545678 | English  | Reading | Huanuco         | NCR      | Delhi |

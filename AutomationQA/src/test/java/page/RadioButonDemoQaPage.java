@@ -1,8 +1,10 @@
 package page;
 
+import com.ibm.icu.impl.UResource;
 import generic.WebDriverDOM;
 import net.thucydides.core.annotations.DefaultUrl;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -30,7 +32,8 @@ public class RadioButonDemoQaPage extends WebDriverDOM {
     //_____________________________________LOCALIZADORES: RADIO BUTTON_______________________________________
 
 
-    @FindBy(xpath = "//div[@class='custom-control custom-radio custom-control-inline']")  //
+  //  @FindBy(xpath = "//div[@class='custom-control custom-radio custom-control-inline']")  //
+    @FindBy(xpath = "//div[@class='row']")  //
     private WebElement rbo;
 
     @FindBy(id = "yesRadio")  //
@@ -45,14 +48,7 @@ public class RadioButonDemoQaPage extends WebDriverDOM {
     @FindBy(id = "noRadio")  //
     private WebElement rboNoRadio;
 
-
-
-    //_____________________________________FIN LOCALIZADORES: RADIO BUTTON_______________________________________
-
-
-
-    //:::::::::::::::::::::::::::::::::::MENU CHEKBOX ::::::::::::::::::::::::::::::::::::::
-    public void selectCategory(String sCategory) {
+  public void selectCategory(String sCategory) {
         waitElementVisible(category, 5);
         List<WebElement> listCategory = category.findElements(By.className("card-body")); //no clicleable encontro la palabra
         List<WebElement> listCategoryObejct = category.findElements(By.className("card-up"));
@@ -81,24 +77,16 @@ public class RadioButonDemoQaPage extends WebDriverDOM {
         }
     }
 
-    //:::::::::::::::::::::::::::::::::::FIN MENU CHEKBOX :::::::::::::::::::::::::::::::::::::::::::
+ public void selectOptionRadioButon(){
 
-    public void selectOptionRadioButon(){
-
-//        driver.findElement(By.cssSelector("input[id='yesRadio']")).click();
-
+//        findElement(By.cssSelector("input[id='yesRadio']")).click();
         String  sCbo ="Yes";
-        List<WebElement> lisRbo = rbo.findElements(By.xpath("//input"));
-        List<WebElement> lisRboLabel = rbo.findElements(By.xpath("//label"));
-       // WebElement lisRbo= driver.findElement(By.id("yesRadio"));
-
+        List<WebElement> lisRboLabel = rbo.findElements(By.xpath("//div[2]/div[1]/div/label"));
 
         for (int i = 0; i < lisRboLabel.size(); i++) {
             if (lisRboLabel.get(i).getText().contains(sCbo)) {
-                System.out.println("\n dime que Encontro : " + lisRboLabel.get(i).getText());
-              //  System.out.println("\n dime que Encontro 3 : " +  lisRbo.get(i).click());
-                lisRbo.get(i).click();
-
+                System.out.println("\n Encontro : " + lisRboLabel.get(i).getText());
+                 lisRboLabel.get(i).click();
                 break;
             }
 

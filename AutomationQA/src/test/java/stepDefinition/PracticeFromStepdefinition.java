@@ -57,9 +57,9 @@ public class PracticeFromStepdefinition {
         practiceFromPage.ingresarSubjects(sSubjects);
     }
 
-    @And("^se seleciona  Hobbies$")
-    public void seSelecionaHobbies() {
-        practiceFromPage.selectionHobbies();
+    @And("^se seleciona Hobbies \"([^\"]*)\"$")
+    public void seSelecionaHobbies(String h) {
+        practiceFromPage.selectionHobbies(h);
     }
 
     @And("^se carga el archivo$")
