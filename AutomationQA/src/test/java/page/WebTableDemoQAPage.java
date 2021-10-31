@@ -5,7 +5,6 @@ import net.thucydides.core.annotations.DefaultUrl;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
@@ -31,6 +30,11 @@ public class WebTableDemoQAPage extends WebDriverDOM {
     @FindBy(xpath = "//div[@class='rt-tbody']")
     private WebElement btnEdit;
 
+    @FindBy(xpath = "//div[@class='rt-tbody']/div[1]/div/div[7]/div/span[1]")
+    private WebElement botonEdit;
+
+    @FindBy(xpath = "//div[@class='rt-tbody']/div[1]/div/div[7]/div/span[2]")
+    private WebElement botonDelete;
 
     @FindBy(id = "submit")
     private WebElement submit;
@@ -107,72 +111,58 @@ public class WebTableDemoQAPage extends WebDriverDOM {
         //Escribir en los texbox lo que gustes
         formularioName.clear();
         formularioName.sendKeys(sName);
-        String nameIngresado = formularioName.getText();
-        System.out.println("nombre ingresado" + nameIngresado);
-        formularioDepartment.sendKeys(sLastName);
-        formularioDepartment.clear();
-        formularioEmail.sendKeys(sEmail);
+        formularioLastName.clear();
+        formularioLastName.sendKeys(sLastName);
         formularioEmail.clear();
-        formularioAge.sendKeys(sAge);
+        formularioEmail.sendKeys(sEmail);
         formularioAge.clear();
-        formularioSalary.sendKeys(sSalary);
+        formularioAge.sendKeys(sAge);
         formularioSalary.clear();
-        formularioDepartment.sendKeys(sDepartment);
+        formularioSalary.sendKeys(sSalary);
         formularioDepartment.clear();
+        formularioDepartment.sendKeys(sDepartment);
 
 
     }
 
 
+    public void buscarName(String name) {
 
-    public void clicEdit(String name) {
+        waitElementVisible(txtBuscar, 5);
+        txtBuscar.sendKeys(name);
 
-         waitElementVisible(txtBuscar, 5);
+    }
 
+    public void clicEdit() {
+        waitElementVisible(botonEdit, 5);
+        botonEdit.click();
+
+        /*
         List<WebElement> listBuscarTexto = btnEdit.findElements(By.xpath("//div/div/div[1]")); // texto a buscar
         List<WebElement> Icon = btnEdit.findElements(By.xpath("//div/div/div[7]/div/span[1]")); //clic en el icono editar
 
-        //txtBuscar.sendKeys(name); //corregir
-
-        // para editar en la tabla buscado por nombre
+       // para editar en la tabla buscado por nombre
         for (int i = 0; i < listBuscarTexto.size(); i++) {
-            System.out.println("LISTA A BUSCAR: "+i+listBuscarTexto);
             if (listBuscarTexto.get(i).getText().contains(name)) {
-                System.out.println("NAME: "+i+name);
-
                 Icon.get(i).click();
-                System.out.println("ICON: "+i+Icon);
-                break;
-            }
-        }    }
-
-
-    public void clicDelete(String name) {
-
-        // waitElementVisible(btnEdit, 5);
-        // para borrar en la tabla buscado por nombre
-        txtBuscar.sendKeys(name);
-        List<WebElement> listBuscarTexto = btnEdit.findElements(By.xpath("//div/div/div[1]")); // texto a buscar
-        List<WebElement> Icon = btnEdit.findElements(By.xpath("//div/div/div[7]/div/span[2]")); //clic en el icono borrar
-
-        // para borrar en la tabla buscado por nombre
-        for (int i = 0; i < listBuscarTexto.size(); i++) {
-            System.out.println("LISTA A BUSCAR: "+i+listBuscarTexto);
-            if (listBuscarTexto.get(i).getText().contains(name)) {
-                System.out.println("NAME: "+i+name);
-
-                Icon.get(i).click();
-                System.out.println("ICON: "+i+Icon);
                 break;
             }
         }
+        */
 
 
     }
+
+
+    public void clicDelete(){
+        waitElementVisible(botonDelete, 5);
+        botonDelete.click();
+    }
+
     public void clickSubmit() {
 
         waitElementVisible(submit, 5);
-       submit.submit();
+        submit.submit();
     }
 
 }

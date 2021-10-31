@@ -1,17 +1,13 @@
 package page;
 
 import generic.WebDriverDOM;
-import lib.WebDriverManager;
 import net.thucydides.core.annotations.DefaultUrl;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
-
-import static org.openqa.selenium.Keys.ENTER;
 
 @DefaultUrl("https://demoqa.com/automation-practice-form")
 public class PracticeFromPage extends WebDriverDOM {
@@ -27,8 +23,8 @@ public class PracticeFromPage extends WebDriverDOM {
     @FindBy(id = "userEmail")
     WebElement txtUserEmail;
 
-    @FindBy(xpath = "//div[@id='genterWrapper']")
-    WebElement rboGender;
+    @FindBy(xpath = "//form[@id='userForm']")
+    WebElement generic;
 
     @FindBy(id = "userNumber")
     WebElement txtUserNumber;
@@ -48,9 +44,6 @@ public class PracticeFromPage extends WebDriverDOM {
     @FindBy(xpath = "//div[@id='stateCity-wrapper']/div[3]/div/div/div[1]/div[2]/div/input")
     WebElement txtCity;
 
-
-    @FindBy( id= "gender-radio-1")
-    WebElement checkBoxEnabled;
 
     @FindBy(id = "submit")
     WebElement btnSubmit;
@@ -81,16 +74,17 @@ public class PracticeFromPage extends WebDriverDOM {
     }
 
     public void selectionGenero(String sGender) {
-    waitElementVisible(rboGender, 2);
+   // waitElementVisible(rboGender, 5);
 
-        List<WebElement> genderLabel = rboGender.findElements(By.xpath("//div[2]/div/label"));
+    //    List<WebElement> genderLabel = rboGender.findElements(By.xpath("//div[2]/div/label"));
+        List<WebElement> genderLabel = generic.findElements(By.xpath("//div[3]/div[2]/div/label"));
+        List<WebElement> icon = generic.findElements(By.xpath("//div[3]/div[2]/div/input"));
 
         //clic en genero
         for (int i = 0; i < genderLabel.size(); i++) {
             if (genderLabel.get(i).getText().contains(sGender)) {
                 System.out.println("Gener: " + genderLabel.get(i).getText());
-                genderLabel.get(i).getText();
-
+                icon.get(i).sendKeys(Keys.SPACE);
                 break;
             }
         }
@@ -149,10 +143,20 @@ public class PracticeFromPage extends WebDriverDOM {
         }
     }
 
-    public void selectionHobbies() {
-        WebElement hobbies = driver.findElement(By.id("hobbies-checkbox-1"));
-        JavascriptExecutor executorHobbies = (JavascriptExecutor)driver;
-        executorHobbies.executeScript("arguments[0].click();",hobbies);
+    public void selectionHobbies(String sHobbies) {
+
+
+        List<WebElement> hobbiesLabel = generic.findElements(By.xpath("//div[7]/div[2]/div/label"));
+        List<WebElement> rboHobbies = generic.findElements(By.xpath("//div[7]/div[2]/div/input"));
+
+        //clic en genero
+        for (int i = 0; i < hobbiesLabel.size(); i++) {
+            if (hobbiesLabel.get(i).getText().contains(sHobbies)) {
+                System.out.println("Sports: " + hobbiesLabel.get(i).getText());
+                rboHobbies.get(i).sendKeys(Keys.SPACE);
+                break;
+            }
+        }
 }
 
 

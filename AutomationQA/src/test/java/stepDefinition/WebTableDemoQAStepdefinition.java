@@ -12,12 +12,11 @@ public class WebTableDemoQAStepdefinition {
 
      WebTableDemoQAPage webTableDemoQAPage = new WebTableDemoQAPage();
 
-    @Given("^que el usuario se encuentra en el home de DemoQA$")
-    public void queElUsuarioSeEncuentraEnElHomeDeDemoQA() {
+    @Given("^que el usuario se encuentra en el DemoQA webta Table$")
+    public void queElUsuarioSeEncuentraEnElDemoQAWebtaTable() {
         webTableDemoQAPage.setDriver(WebDriverManager.inicializarBrowser());
         webTableDemoQAPage.open();
     }
-
 
     @When("^se clickea en el boton add$")
     public void seClickeaEnElBotonAdd() {
@@ -34,17 +33,16 @@ public class WebTableDemoQAStepdefinition {
         webTableDemoQAPage.clickSubmit();
     }
 
-    @Given("^que el usuario se encuentra en el DemoQA webta Table$")
-    public void queElUsuarioSeEncuentraEnElDemoQAWebtaTable() {
-        webTableDemoQAPage.setDriver(WebDriverManager.inicializarBrowser());
-        webTableDemoQAPage.open();
+
+    @When("^se busca el nombre \"([^\"]*)\"$")
+    public void seBuscaElNombre(String arg0) throws Throwable {
+        webTableDemoQAPage.buscarName(arg0);
     }
 
-    @When("^se clickea en el span edit \"([^\"]*)\"$")
-    public void seClickeaEnElSpanEdit(String arg0) throws Throwable {
-        webTableDemoQAPage.clicEdit(arg0);
+    @And("^se clickea en el span edit$")
+    public void seClickeaEnElSpanEdit() {
+        webTableDemoQAPage.clicEdit();
     }
-
 
 
     @Then("^se ingresa lo datos para editar \"([^\"]*)\"  \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
@@ -58,5 +56,8 @@ public class WebTableDemoQAStepdefinition {
     }
 
 
-
+    @Then("^se clickea en el boton delete$")
+    public void seClickeaEnElBotonDelete() {
+       // webTableDemoQAPage.clicDelete();
+    }
 }

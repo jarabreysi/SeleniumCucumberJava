@@ -8,7 +8,8 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = {"src/test/resources/feature"},
         glue = {"stepDefinition"},
-        tags = {"@FormBasic or  @Form"}
+       // tags = {"@FormBasic or  @Form"}
+        tags = {"@Form"}
 )
 
 public class RunnerTest {
