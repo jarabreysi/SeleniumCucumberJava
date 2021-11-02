@@ -22,7 +22,6 @@ public class LoginInstagramStepdefinition {
     @When("^se ingresa el email \"([^\"]*)\"$")
     public void seIngresaElEmail(String sEmail) throws Throwable {
         loginInstagramPage.ingregaEmail(sEmail);
-        throw new PendingException();
     }
 
     @And("^se ingresa una contrasena \"([^\"]*)\"$")

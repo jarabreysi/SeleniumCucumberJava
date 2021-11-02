@@ -3,10 +3,10 @@
 
 Feature: Ingresar a Instagram
   Como usuario
-  Quiero gg
-  Para ggg
+  Quiero ingresar a la aplicacionn
+  Para ver unos post
 
-  @Id08
+  @LoginInstagram
   Scenario Outline:Login - Ingresar sesion con credenciales incorrectas
     Given que el usuario se encuentra en el home de instagram
     When se ingresa el email "<sEmail>"
@@ -16,7 +16,6 @@ Feature: Ingresar a Instagram
     Examples:
       | sEmail                | sPassword   | sMensajeError                              |
       | breysijara@gmail.com | kjsmndhjdkj | La contraseña no es correcta. Compruébala. |
-      | anajara@gmail.com | kjsmndhjdkj | La contraseña no es correcta. Compruébala. |
 
 
 
