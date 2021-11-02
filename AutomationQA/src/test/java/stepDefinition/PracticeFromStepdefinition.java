@@ -7,6 +7,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import generic.WebDriverDOM;
 import lib.WebDriverManager;
+import org.junit.Assert;
 import page.PracticeFromPage;
 
 public class PracticeFromStepdefinition {
@@ -87,10 +88,14 @@ public class PracticeFromStepdefinition {
         practiceFromPage.submit();
     }
 
-    @Then("^se muestra mis datos en una ventana emergente$")
-    public void seMuestraMisDatosEnUnaVentanaEmergente() {
-    }
 
+    @Then("^se muestra mis datos en una ventana emergente \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+    public void seMuestraMisDatosEnUnaVentanaEmergente(String sName,String sEmail,String sGender,String mobile,String subject,String hobbies,
+                                                       String Address,String stateandCity) throws Throwable {
+       // practiceFromPage.validarResultado(sName,sEmail,sGender,mobile,subject,hobbies,Address,stateandCity);
+        //     Assert.assertTrue("El texto encontrado no es el esperado",googlePage.validarResultado(sTexto));
+        //
 
+        }
 
 }

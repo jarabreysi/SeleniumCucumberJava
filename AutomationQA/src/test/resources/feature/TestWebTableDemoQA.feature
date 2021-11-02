@@ -15,7 +15,7 @@ Feature: Pruebas demoQA
     And  se clickea en el boton submit
     Examples:
       | sName  | sLastName | sEmail           | sAge | sSalary | sDepartment |
-      | breysi | jara      | breysi@gmail.com | 1    | 3000    | Lima        |
+      | breysi | jara      | breysi@gmail.com | 1    | 30000    | Lima        |
 
   @WebTableEdit
   Scenario Outline:  Editar Web Table
@@ -26,7 +26,7 @@ Feature: Pruebas demoQA
     And  se clickea en el boton enviar
     Examples:
       | sNameBuscar | sName | sLastName | sEmail        | sAge | sSalary | sDepartment |
-      | Alden  | SARI  | jara      | Ana@gmail.com | 1    | 3000    | Lima        |
+      | Alden  | SARI  | jara      | Ana@gmail.com | 1    | 10000    | Lima        |
 
   @WebTableDelete
   Scenario Outline:  Delete Web Table

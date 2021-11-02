@@ -8,8 +8,9 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = {"src/test/resources/feature"},
         glue = {"stepDefinition"},
-       // tags = {"@FormBasic or  @Form"}
-        tags = {"@Form"}
+        tags = {"@WebTableEdit or @Form or  @FormBasic or @LoginInstagram"}
+        //tags = {"@Form"}
+        //plugin ={"json:test/report/cucumber_report.json"}
 )
 
 public class RunnerTest {

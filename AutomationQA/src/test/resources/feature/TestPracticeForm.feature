@@ -23,7 +23,7 @@ Feature: Pruebas demo QA
     And se ingresa el sState "<sState>"
     And se ingresa el sCity  "<sCity>"
     And se clickea en el boton submit del formulario
-    Then se muestra mis datos en una ventana emergente
+    Then se muestra mis datos en una ventana emergente "<sName>" "<sEmail>" "<sGenero>" "<sMobile>" "<sSubject>" "<sHobbies>" "<sCurrentAddress>" "<sState>"
     Examples:
       | sName  | sLastName | sEmail           | sGenero | sMobile    | sSubject | sHobbies | sCurrentAddress | sState | sCity |
       | breysi | jara      | breysi@gmail.com | Female    | 9876545678 | English  | Reading | Huanuco         | NCR      | Delhi |
